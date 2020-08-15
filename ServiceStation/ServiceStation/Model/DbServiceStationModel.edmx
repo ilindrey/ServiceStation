@@ -1,0 +1,1622 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="Application" EntityType="Model.Store.Application" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Car" EntityType="Model.Store.Car" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ContactPerson" EntityType="Model.Store.ContactPerson" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Contractor" EntityType="Model.Store.Contractor" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Employee" EntityType="Model.Store.Employee" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Mark" EntityType="Model.Store.Mark" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Material" EntityType="Model.Store.Material" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Model" EntityType="Model.Store.Model" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Nomenclature" EntityType="Model.Store.Nomenclature" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Option" EntityType="Model.Store.Option" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="OptionCustomer" EntityType="Model.Store.OptionCustomer" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Post" EntityType="Model.Store.Post" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PowerOfAttorney" EntityType="Model.Store.PowerOfAttorney" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Reason" EntityType="Model.Store.Reason" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ReasonCustomer" EntityType="Model.Store.ReasonCustomer" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TypeManifestation" EntityType="Model.Store.TypeManifestation" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TypeNomenclature" EntityType="Model.Store.TypeNomenclature" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TypeRepair" EntityType="Model.Store.TypeRepair" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Unit" EntityType="Model.Store.Unit" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="User" EntityType="Model.Store.User" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ViewСontractor" EntityType="Model.Store.ViewСontractor" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Work" EntityType="Model.Store.Work" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="WorkingHour" EntityType="Model.Store.WorkingHour" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_CarApplication" Association="Model.Store.FK_CarApplication">
+      <End Role="Car" EntitySet="Car" />
+      <End Role="Application" EntitySet="Application" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EApllicationEOptionsCustomer" Association="Model.Store.FK_EApllicationEOptionsCustomer">
+      <End Role="Application" EntitySet="Application" />
+      <End Role="OptionCustomer" EntitySet="OptionCustomer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EApplicationEReasonsCustomer" Association="Model.Store.FK_EApplicationEReasonsCustomer">
+      <End Role="Application" EntitySet="Application" />
+      <End Role="ReasonCustomer" EntitySet="ReasonCustomer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EEmployeeEApllication" Association="Model.Store.FK_EEmployeeEApllication">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Application" EntitySet="Application" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EPowerOfAttorneyEApllication" Association="Model.Store.FK_EPowerOfAttorneyEApllication">
+      <End Role="PowerOfAttorney" EntitySet="PowerOfAttorney" />
+      <End Role="Application" EntitySet="Application" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TypeRepairModelApplicationModel" Association="Model.Store.FK_TypeRepairModelApplicationModel">
+      <End Role="TypeRepair" EntitySet="TypeRepair" />
+      <End Role="Application" EntitySet="Application" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ContractorCar" Association="Model.Store.FK_ContractorCar">
+      <End Role="Contractor" EntitySet="Contractor" />
+      <End Role="Car" EntitySet="Car" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EModelEVehicles" Association="Model.Store.FK_EModelEVehicles">
+      <End Role="Model" EntitySet="Model" />
+      <End Role="Car" EntitySet="Car" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EContactNameEPowerOfAttorney" Association="Model.Store.FK_EContactNameEPowerOfAttorney">
+      <End Role="ContactPerson" EntitySet="ContactPerson" />
+      <End Role="PowerOfAttorney" EntitySet="PowerOfAttorney" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EContractingPartiesEContactName" Association="Model.Store.FK_EContractingPartiesEContactName">
+      <End Role="Contractor" EntitySet="Contractor" />
+      <End Role="ContactPerson" EntitySet="ContactPerson" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EViewContractingPartiesEContractingParties" Association="Model.Store.FK_EViewContractingPartiesEContractingParties">
+      <End Role="ViewСontractor" EntitySet="ViewСontractor" />
+      <End Role="Contractor" EntitySet="Contractor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmployeeModelUserModel" Association="Model.Store.FK_EmployeeModelUserModel">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EPostEEmployee" Association="Model.Store.FK_EPostEEmployee">
+      <End Role="Post" EntitySet="Post" />
+      <End Role="Employee" EntitySet="Employee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EMarkEModel" Association="Model.Store.FK_EMarkEModel">
+      <End Role="Mark" EntitySet="Mark" />
+      <End Role="Model" EntitySet="Model" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NomenclatureModelMaterialModel" Association="Model.Store.FK_NomenclatureModelMaterialModel">
+      <End Role="Nomenclature" EntitySet="Nomenclature" />
+      <End Role="Material" EntitySet="Material" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReasonCustomerModelMaterialModel" Association="Model.Store.FK_ReasonCustomerModelMaterialModel">
+      <End Role="ReasonCustomer" EntitySet="ReasonCustomer" />
+      <End Role="Material" EntitySet="Material" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NomenclatureModelWorkModel" Association="Model.Store.FK_NomenclatureModelWorkModel">
+      <End Role="Nomenclature" EntitySet="Nomenclature" />
+      <End Role="Work" EntitySet="Work" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TypeNomenclatureModelNomenclatureModel" Association="Model.Store.FK_TypeNomenclatureModelNomenclatureModel">
+      <End Role="TypeNomenclature" EntitySet="TypeNomenclature" />
+      <End Role="Nomenclature" EntitySet="Nomenclature" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UnitModelNomenclatureModel" Association="Model.Store.FK_UnitModelNomenclatureModel">
+      <End Role="Unit" EntitySet="Unit" />
+      <End Role="Nomenclature" EntitySet="Nomenclature" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EOptionsEOptionsCustomer" Association="Model.Store.FK_EOptionsEOptionsCustomer">
+      <End Role="Option" EntitySet="Option" />
+      <End Role="OptionCustomer" EntitySet="OptionCustomer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReasonModelReasonCustomerModel" Association="Model.Store.FK_ReasonModelReasonCustomerModel">
+      <End Role="Reason" EntitySet="Reason" />
+      <End Role="ReasonCustomer" EntitySet="ReasonCustomer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TypeManifestationModelReasonModel" Association="Model.Store.FK_TypeManifestationModelReasonModel">
+      <End Role="TypeManifestation" EntitySet="TypeManifestation" />
+      <End Role="Reason" EntitySet="Reason" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReasonCustomerModelWorkModel" Association="Model.Store.FK_ReasonCustomerModelWorkModel">
+      <End Role="ReasonCustomer" EntitySet="ReasonCustomer" />
+      <End Role="Work" EntitySet="Work" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WorkingHourModelWorkModel" Association="Model.Store.FK_WorkingHourModelWorkModel">
+      <End Role="WorkingHour" EntitySet="WorkingHour" />
+      <End Role="Work" EntitySet="Work" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Application">
+    <Key>
+      <PropertyRef Name="Number" />
+    </Key>
+    <Property Name="Number" Type="int" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="FirstControlTime" Type="datetime" Nullable="true" />
+    <Property Name="SecondControlTime" Type="datetime" Nullable="true" />
+    <Property Name="Type" Type="nvarchar" Nullable="false" MaxLength="15" />
+    <Property Name="Readiness" Type="datetime" Nullable="true" />
+    <Property Name="Extradition" Type="datetime" Nullable="true" />
+    <Property Name="Revealed" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Recommendations" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="ID_powerOfAttorney" Type="uniqueidentifier" Nullable="true" />
+    <Property Name="ID_car" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ID_employee" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Car">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="VIN" Type="nchar" Nullable="false" MaxLength="17" />
+    <Property Name="ID_model" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Mileage" Type="decimal" Nullable="false" Precision="12" Scale="0" />
+    <Property Name="LicensePlate" Type="nvarchar" Nullable="true" MaxLength="15" />
+    <Property Name="NumberEngine" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="NumberChassis" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="NumberBody" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="Year" Type="datetime" Nullable="false" />
+    <Property Name="Price" Type="decimal" Nullable="false" Precision="12" Scale="2" />
+    <Property Name="Color" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="ID_contractor" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ContactPerson">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="FFP" Type="nvarchar" Nullable="true" MaxLength="250" />
+    <Property Name="Phone" Type="nvarchar" Nullable="true" MaxLength="11" />
+    <Property Name="Email" Type="nvarchar" Nullable="true" MaxLength="40" />
+    <Property Name="Address" Type="nvarchar" Nullable="true" MaxLength="100" />
+    <Property Name="Additionally" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="ID_сontractor" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Contractor">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="View" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="ShortName" Type="nvarchar" Nullable="false" MaxLength="150" />
+    <Property Name="FullName" Type="nvarchar" Nullable="true" MaxLength="300" />
+    <Property Name="INN" Type="nchar" Nullable="true" MaxLength="12" />
+    <Property Name="KPP" Type="nchar" Nullable="true" MaxLength="9" />
+    <Property Name="OKPO" Type="nchar" Nullable="true" MaxLength="10" />
+    <Property Name="Phone" Type="nvarchar" Nullable="true" MaxLength="11" />
+    <Property Name="Email" Type="nvarchar" Nullable="true" MaxLength="40" />
+    <Property Name="Address" Type="nvarchar" Nullable="true" MaxLength="100" />
+    <Property Name="Additionally" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="FFP" Type="nvarchar" Nullable="false" MaxLength="250" />
+    <Property Name="ID_post" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Mark">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ShortName" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="FullName" Type="nvarchar" Nullable="true" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Material">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Number_nomenclature" Type="int" Nullable="false" />
+    <Property Name="Amount" Type="int" Nullable="false" />
+    <Property Name="Price" Type="decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="ID_reasonCustomer" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Customer" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Model">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ID_mark" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="Nomenclature">
+    <Key>
+      <PropertyRef Name="Number" />
+    </Key>
+    <Property Name="Number" Type="int" Nullable="false" />
+    <Property Name="ShortName" Type="nvarchar" Nullable="false" MaxLength="150" />
+    <Property Name="FullName" Type="nvarchar" Nullable="true" MaxLength="300" />
+    <Property Name="Type" Type="nvarchar" Nullable="false" MaxLength="6" />
+    <Property Name="Price" Type="decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="Code_unit" Type="int" Nullable="false" />
+    <Property Name="VendorCode" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="Descriprion" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Option">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ShortName" Type="nvarchar" Nullable="false" MaxLength="150" />
+    <Property Name="FullName" Type="nvarchar" Nullable="true" MaxLength="300" />
+  </EntityType>
+  <EntityType Name="OptionCustomer">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Number" Type="int" Nullable="false" />
+    <Property Name="ID_option" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Post">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="PowerOfAttorney">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Number" Type="nvarchar" Nullable="false" MaxLength="10" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="ID_contactPerson" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Reason">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ShortName" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="FullName" Type="nvarchar" Nullable="true" MaxLength="200" />
+    <Property Name="Additionally" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Type" Type="nvarchar" Nullable="false" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="ReasonCustomer">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ID_reason" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Number" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TypeManifestation">
+    <Key>
+      <PropertyRef Name="Type" />
+    </Key>
+    <Property Name="Type" Type="nvarchar" Nullable="false" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="TypeNomenclature">
+    <Key>
+      <PropertyRef Name="Type" />
+    </Key>
+    <Property Name="Type" Type="nvarchar" Nullable="false" MaxLength="6" />
+  </EntityType>
+  <EntityType Name="TypeRepair">
+    <Key>
+      <PropertyRef Name="Type" />
+    </Key>
+    <Property Name="Type" Type="nvarchar" Nullable="false" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="Unit">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="ShortName" Type="nvarchar" Nullable="false" MaxLength="40" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="Password" Type="nchar" Nullable="false" MaxLength="64" />
+    <Property Name="Administrator" Type="bit" Nullable="false" />
+    <Property Name="ID_employee" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ViewСontractor">
+    <Key>
+      <PropertyRef Name="View" />
+    </Key>
+    <Property Name="View" Type="nvarchar" Nullable="false" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Work">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Number_nomenclature" Type="int" Nullable="false" />
+    <Property Name="ID_workingHour" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Amount" Type="int" Nullable="false" />
+    <Property Name="NormOfTime" Type="decimal" Nullable="false" Precision="5" Scale="2" />
+    <Property Name="ID_reasonCustomer" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="WorkingHour">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Price" Type="decimal" Nullable="false" Precision="5" Scale="2" />
+  </EntityType>
+  <Association Name="FK_CarApplication">
+    <End Role="Car" Type="Model.Store.Car" Multiplicity="1" />
+    <End Role="Application" Type="Model.Store.Application" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Car">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Application">
+        <PropertyRef Name="ID_car" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EApllicationEOptionsCustomer">
+    <End Role="Application" Type="Model.Store.Application" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="OptionCustomer" Type="Model.Store.OptionCustomer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Application">
+        <PropertyRef Name="Number" />
+      </Principal>
+      <Dependent Role="OptionCustomer">
+        <PropertyRef Name="Number" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EApplicationEReasonsCustomer">
+    <End Role="Application" Type="Model.Store.Application" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ReasonCustomer" Type="Model.Store.ReasonCustomer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Application">
+        <PropertyRef Name="Number" />
+      </Principal>
+      <Dependent Role="ReasonCustomer">
+        <PropertyRef Name="Number" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EEmployeeEApllication">
+    <End Role="Employee" Type="Model.Store.Employee" Multiplicity="1" />
+    <End Role="Application" Type="Model.Store.Application" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Application">
+        <PropertyRef Name="ID_employee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EPowerOfAttorneyEApllication">
+    <End Role="PowerOfAttorney" Type="Model.Store.PowerOfAttorney" Multiplicity="0..1" />
+    <End Role="Application" Type="Model.Store.Application" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PowerOfAttorney">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Application">
+        <PropertyRef Name="ID_powerOfAttorney" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TypeRepairModelApplicationModel">
+    <End Role="TypeRepair" Type="Model.Store.TypeRepair" Multiplicity="1" />
+    <End Role="Application" Type="Model.Store.Application" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeRepair">
+        <PropertyRef Name="Type" />
+      </Principal>
+      <Dependent Role="Application">
+        <PropertyRef Name="Type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ContractorCar">
+    <End Role="Contractor" Type="Model.Store.Contractor" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Car" Type="Model.Store.Car" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contractor">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Car">
+        <PropertyRef Name="ID_contractor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EModelEVehicles">
+    <End Role="Model" Type="Model.Store.Model" Multiplicity="1" />
+    <End Role="Car" Type="Model.Store.Car" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Model">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Car">
+        <PropertyRef Name="ID_model" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EContactNameEPowerOfAttorney">
+    <End Role="ContactPerson" Type="Model.Store.ContactPerson" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PowerOfAttorney" Type="Model.Store.PowerOfAttorney" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ContactPerson">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PowerOfAttorney">
+        <PropertyRef Name="ID_contactPerson" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EContractingPartiesEContactName">
+    <End Role="Contractor" Type="Model.Store.Contractor" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ContactPerson" Type="Model.Store.ContactPerson" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contractor">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ContactPerson">
+        <PropertyRef Name="ID_сontractor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EViewContractingPartiesEContractingParties">
+    <End Role="ViewСontractor" Type="Model.Store.ViewСontractor" Multiplicity="1" />
+    <End Role="Contractor" Type="Model.Store.Contractor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ViewСontractor">
+        <PropertyRef Name="View" />
+      </Principal>
+      <Dependent Role="Contractor">
+        <PropertyRef Name="View" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmployeeModelUserModel">
+    <End Role="Employee" Type="Model.Store.Employee" Multiplicity="1" />
+    <End Role="User" Type="Model.Store.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="ID_employee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EPostEEmployee">
+    <End Role="Post" Type="Model.Store.Post" Multiplicity="1" />
+    <End Role="Employee" Type="Model.Store.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Post">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="ID_post" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EMarkEModel">
+    <End Role="Mark" Type="Model.Store.Mark" Multiplicity="1" />
+    <End Role="Model" Type="Model.Store.Model" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Mark">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Model">
+        <PropertyRef Name="ID_mark" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NomenclatureModelMaterialModel">
+    <End Role="Nomenclature" Type="Model.Store.Nomenclature" Multiplicity="1" />
+    <End Role="Material" Type="Model.Store.Material" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nomenclature">
+        <PropertyRef Name="Number" />
+      </Principal>
+      <Dependent Role="Material">
+        <PropertyRef Name="Number_nomenclature" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReasonCustomerModelMaterialModel">
+    <End Role="ReasonCustomer" Type="Model.Store.ReasonCustomer" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Material" Type="Model.Store.Material" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReasonCustomer">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Material">
+        <PropertyRef Name="ID_reasonCustomer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NomenclatureModelWorkModel">
+    <End Role="Nomenclature" Type="Model.Store.Nomenclature" Multiplicity="1" />
+    <End Role="Work" Type="Model.Store.Work" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nomenclature">
+        <PropertyRef Name="Number" />
+      </Principal>
+      <Dependent Role="Work">
+        <PropertyRef Name="Number_nomenclature" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TypeNomenclatureModelNomenclatureModel">
+    <End Role="TypeNomenclature" Type="Model.Store.TypeNomenclature" Multiplicity="1" />
+    <End Role="Nomenclature" Type="Model.Store.Nomenclature" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeNomenclature">
+        <PropertyRef Name="Type" />
+      </Principal>
+      <Dependent Role="Nomenclature">
+        <PropertyRef Name="Type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UnitModelNomenclatureModel">
+    <End Role="Unit" Type="Model.Store.Unit" Multiplicity="1" />
+    <End Role="Nomenclature" Type="Model.Store.Nomenclature" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="Nomenclature">
+        <PropertyRef Name="Code_unit" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EOptionsEOptionsCustomer">
+    <End Role="Option" Type="Model.Store.Option" Multiplicity="1" />
+    <End Role="OptionCustomer" Type="Model.Store.OptionCustomer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Option">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="OptionCustomer">
+        <PropertyRef Name="ID_option" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReasonModelReasonCustomerModel">
+    <End Role="Reason" Type="Model.Store.Reason" Multiplicity="1" />
+    <End Role="ReasonCustomer" Type="Model.Store.ReasonCustomer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Reason">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ReasonCustomer">
+        <PropertyRef Name="ID_reason" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TypeManifestationModelReasonModel">
+    <End Role="TypeManifestation" Type="Model.Store.TypeManifestation" Multiplicity="1" />
+    <End Role="Reason" Type="Model.Store.Reason" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeManifestation">
+        <PropertyRef Name="Type" />
+      </Principal>
+      <Dependent Role="Reason">
+        <PropertyRef Name="Type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReasonCustomerModelWorkModel">
+    <End Role="ReasonCustomer" Type="Model.Store.ReasonCustomer" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Work" Type="Model.Store.Work" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReasonCustomer">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Work">
+        <PropertyRef Name="ID_reasonCustomer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WorkingHourModelWorkModel">
+    <End Role="WorkingHour" Type="Model.Store.WorkingHour" Multiplicity="1" />
+    <End Role="Work" Type="Model.Store.Work" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WorkingHour">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Work">
+        <PropertyRef Name="ID_workingHour" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ApplicationModel">
+          <Key>
+            <PropertyRef Name="Number" />
+          </Key>
+          <Property Name="Number" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FirstControlTime" Type="DateTime" Nullable="true" Precision="3" />
+          <Property Name="SecondControlTime" Type="DateTime" Precision="3" Nullable="true" />
+          <Property Name="Type" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Readiness" Type="DateTime" Precision="3" Nullable="true" />
+          <Property Name="Extradition" Type="DateTime" Precision="3" Nullable="true" />
+          <Property Name="Revealed" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="true" />
+          <Property Name="Recommendations" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="true" />
+          <Property Name="ID_powerOfAttorney" Type="Guid" Nullable="true" />
+          <Property Name="ID_car" Type="Guid" Nullable="false" />
+          <Property Name="ID_employee" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Car" Relationship="Self.FK_CarApplication" FromRole="Application" ToRole="Car" />
+          <NavigationProperty Name="OptionCustomer" Relationship="Self.FK_EApllicationEOptionsCustomer" FromRole="Application" ToRole="OptionCustomer" />
+          <NavigationProperty Name="ReasonCustomer" Relationship="Self.FK_EApplicationEReasonsCustomer" FromRole="Application" ToRole="ReasonCustomer" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_EEmployeeEApllication" FromRole="Application" ToRole="Employee" />
+          <NavigationProperty Name="PowerOfAttorney" Relationship="Self.FK_EPowerOfAttorneyEApllication" FromRole="Application" ToRole="PowerOfAttorney" />
+          <NavigationProperty Name="TypeRepair" Relationship="Self.FK_TypeRepairModelApplicationModel" FromRole="Application" ToRole="TypeRepair" />
+        </EntityType>
+        <EntityType Name="CarModel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="VIN" Type="String" MaxLength="17" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="ID_model" Type="Guid" Nullable="false" />
+          <Property Name="Mileage" Type="Decimal" Nullable="false" Scale="0" Precision="12" />
+          <Property Name="LicensePlate" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="true" />
+          <Property Name="NumberEngine" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="true" />
+          <Property Name="NumberChassis" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="true" />
+          <Property Name="NumberBody" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="true" />
+          <Property Name="Year" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Price" Type="Decimal" Nullable="false" Scale="2" Precision="12" />
+          <Property Name="Color" Type="String" Unicode="true" FixedLength="false" MaxLength="50" Nullable="true" />
+          <Property Name="ID_contractor" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Application" Relationship="Self.FK_CarApplication" FromRole="Car" ToRole="Application" />
+          <NavigationProperty Name="Contractor" Relationship="Self.FK_ContractorCar" FromRole="Car" ToRole="Contractor" />
+          <NavigationProperty Name="Model" Relationship="Self.FK_EModelEVehicles" FromRole="Car" ToRole="Model" />
+        </EntityType>
+        <EntityType Name="ContactPersonModel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="FFP" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="true" />
+          <Property Name="Email" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="true" />
+          <Property Name="Address" Type="String" Nullable="true" Unicode="true" MaxLength="100" />
+          <Property Name="Additionally" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="true" />
+          <Property Name="ID_сontractor" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="PowerOfAttorney" Relationship="Self.FK_EContactNameEPowerOfAttorney" FromRole="ContactPerson" ToRole="PowerOfAttorney" />
+          <NavigationProperty Name="Contractor" Relationship="Self.FK_EContractingPartiesEContactName" FromRole="ContactPerson" ToRole="Contractor" />
+        </EntityType>
+        <EntityType Name="ContractorModel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="View" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ShortName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FullName" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="true" />
+          <Property Name="INN" Type="String" MaxLength="12" FixedLength="true" Unicode="true" Nullable="true" />
+          <Property Name="KPP" Type="String" MaxLength="9" FixedLength="true" Unicode="true" Nullable="true" />
+          <Property Name="OKPO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="true" />
+          <Property Name="Phone" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="true" />
+          <Property Name="Email" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="true" />
+          <Property Name="Address" Type="String" Nullable="true" Unicode="true" MaxLength="100" />
+          <Property Name="Additionally" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="true" />
+          <NavigationProperty Name="Car" Relationship="Self.FK_ContractorCar" FromRole="Contractor" ToRole="Car" />
+          <NavigationProperty Name="ContactPerson" Relationship="Self.FK_EContractingPartiesEContactName" FromRole="Contractor" ToRole="ContactPerson" />
+          <NavigationProperty Name="ViewСontractor" Relationship="Self.FK_EViewContractingPartiesEContractingParties" FromRole="Contractor" ToRole="ViewСontractor" />
+        </EntityType>
+        <EntityType Name="EmployeeModel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="FFP" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID_post" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Application" Relationship="Self.FK_EEmployeeEApllication" FromRole="Employee" ToRole="Application" />
+          <NavigationProperty Name="User" Relationship="Self.FK_EmployeeModelUserModel" FromRole="Employee" ToRole="User" />
+          <NavigationProperty Name="Post" Relationship="Self.FK_EPostEEmployee" FromRole="Employee" ToRole="Post" />
+        </EntityType>
+        <EntityType Name="MarkModel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="ShortName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FullName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="true" />
+          <NavigationProperty Name="Model" Relationship="Self.FK_EMarkEModel" FromRole="Mark" ToRole="Model" />
+        </EntityType>
+        <EntityType Name="MaterialModel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="Number_nomenclature" Type="Int32" Nullable="false" />
+          <Property Name="Amount" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="ID_reasonCustomer" Type="Guid" Nullable="false" />
+          <Property Name="Customer" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Nomenclature" Relationship="Self.FK_NomenclatureModelMaterialModel" FromRole="Material" ToRole="Nomenclature" />
+          <NavigationProperty Name="ReasonCustomer" Relationship="Self.FK_ReasonCustomerModelMaterialModel" FromRole="Material" ToRole="ReasonCustomer" />
+        </EntityType>
+        <EntityType Name="ModelModel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="ID_mark" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Car" Relationship="Self.FK_EModelEVehicles" FromRole="Model" ToRole="Car" />
+          <NavigationProperty Name="Mark" Relationship="Self.FK_EMarkEModel" FromRole="Model" ToRole="Mark" />
+        </EntityType>
+        <EntityType Name="NomenclatureModel">
+          <Key>
+            <PropertyRef Name="Number" />
+          </Key>
+          <Property Name="Number" Type="Int32" Nullable="false" />
+          <Property Name="ShortName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FullName" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="true" />
+          <Property Name="Type" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Code_unit" Type="Int32" Nullable="false" />
+          <Property Name="VendorCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="true" />
+          <Property Name="Descriprion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="true" />
+          <NavigationProperty Name="Material" Relationship="Self.FK_NomenclatureModelMaterialModel" FromRole="Nomenclature" ToRole="Material" />
+          <NavigationProperty Name="Work" Relationship="Self.FK_NomenclatureModelWorkModel" FromRole="Nomenclature" ToRole="Work" />
+          <NavigationProperty Name="TypeNomenclature" Relationship="Self.FK_TypeNomenclatureModelNomenclatureModel" FromRole="Nomenclature" ToRole="TypeNomenclature" />
+          <NavigationProperty Name="Unit" Relationship="Self.FK_UnitModelNomenclatureModel" FromRole="Nomenclature" ToRole="Unit" />
+        </EntityType>
+        <EntityType Name="OptionModel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="ShortName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FullName" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="OptionCustomer" Relationship="Self.FK_EOptionsEOptionsCustomer" FromRole="Option" ToRole="OptionCustomer" />
+        </EntityType>
+        <EntityType Name="OptionCustomerModel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="Number" Type="Int32" Nullable="false" />
+          <Property Name="ID_option" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Application" Relationship="Self.FK_EApllicationEOptionsCustomer" FromRole="OptionCustomer" ToRole="Application" />
+          <NavigationProperty Name="Option" Relationship="Self.FK_EOptionsEOptionsCustomer" FromRole="OptionCustomer" ToRole="Option" />
+        </EntityType>
+        <EntityType Name="PostModel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_EPostEEmployee" FromRole="Post" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="PowerOfAttorneyModel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="Number" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ID_contactPerson" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Application" Relationship="Self.FK_EPowerOfAttorneyEApllication" FromRole="PowerOfAttorney" ToRole="Application" />
+          <NavigationProperty Name="ContactPerson" Relationship="Self.FK_EContactNameEPowerOfAttorney" FromRole="PowerOfAttorney" ToRole="ContactPerson" />
+        </EntityType>
+        <EntityType Name="ReasonModel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="ShortName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FullName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="true" />
+          <Property Name="Additionally" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="true" />
+          <Property Name="Type" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ReasonCustomer" Relationship="Self.FK_ReasonModelReasonCustomerModel" FromRole="Reason" ToRole="ReasonCustomer" />
+          <NavigationProperty Name="TypeManifestation" Relationship="Self.FK_TypeManifestationModelReasonModel" FromRole="Reason" ToRole="TypeManifestation" />
+        </EntityType>
+        <EntityType Name="ReasonCustomerModel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="ID_reason" Type="Guid" Nullable="false" />
+          <Property Name="Number" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Application" Relationship="Self.FK_EApplicationEReasonsCustomer" FromRole="ReasonCustomer" ToRole="Application" />
+          <NavigationProperty Name="Material" Relationship="Self.FK_ReasonCustomerModelMaterialModel" FromRole="ReasonCustomer" ToRole="Material" />
+          <NavigationProperty Name="Reason" Relationship="Self.FK_ReasonModelReasonCustomerModel" FromRole="ReasonCustomer" ToRole="Reason" />
+          <NavigationProperty Name="Work" Relationship="Self.FK_ReasonCustomerModelWorkModel" FromRole="ReasonCustomer" ToRole="Work" />
+        </EntityType>
+        <EntityType Name="TypeManifestationModel">
+          <Key>
+            <PropertyRef Name="Type" />
+          </Key>
+          <Property Name="Type" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Reason" Relationship="Self.FK_TypeManifestationModelReasonModel" FromRole="TypeManifestation" ToRole="Reason" />
+        </EntityType>
+        <EntityType Name="TypeNomenclatureModel">
+          <Key>
+            <PropertyRef Name="Type" />
+          </Key>
+          <Property Name="Type" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Nomenclature" Relationship="Self.FK_TypeNomenclatureModelNomenclatureModel" FromRole="TypeNomenclature" ToRole="Nomenclature" />
+        </EntityType>
+        <EntityType Name="TypeRepairModel">
+          <Key>
+            <PropertyRef Name="Type" />
+          </Key>
+          <Property Name="Type" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Application" Relationship="Self.FK_TypeRepairModelApplicationModel" FromRole="TypeRepair" ToRole="Application" />
+        </EntityType>
+        <EntityType Name="UnitModel">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ShortName" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Nomenclature" Relationship="Self.FK_UnitModelNomenclatureModel" FromRole="Unit" ToRole="Nomenclature" />
+        </EntityType>
+        <EntityType Name="UserModel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="64" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Administrator" Type="Boolean" Nullable="false" />
+          <Property Name="ID_employee" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_EmployeeModelUserModel" FromRole="User" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="ViewСontractorModel">
+          <Key>
+            <PropertyRef Name="View" />
+          </Key>
+          <Property Name="View" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Contractor" Relationship="Self.FK_EViewContractingPartiesEContractingParties" FromRole="ViewСontractor" ToRole="Contractor" />
+        </EntityType>
+        <EntityType Name="WorkModel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="Number_nomenclature" Type="Int32" Nullable="false" />
+          <Property Name="ID_workingHour" Type="Guid" Nullable="false" />
+          <Property Name="Amount" Type="Int32" Nullable="false" />
+          <Property Name="NormOfTime" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="ID_reasonCustomer" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Nomenclature" Relationship="Self.FK_NomenclatureModelWorkModel" FromRole="Work" ToRole="Nomenclature" />
+          <NavigationProperty Name="ReasonCustomer" Relationship="Self.FK_ReasonCustomerModelWorkModel" FromRole="Work" ToRole="ReasonCustomer" />
+          <NavigationProperty Name="WorkingHour" Relationship="Self.FK_WorkingHourModelWorkModel" FromRole="Work" ToRole="WorkingHour" />
+        </EntityType>
+        <EntityType Name="WorkingHourModel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" FixedLength="false" Unicode="true" Nullable="false" MaxLength="100" />
+          <Property Name="Price" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+          <NavigationProperty Name="Work" Relationship="Self.FK_WorkingHourModelWorkModel" FromRole="WorkingHour" ToRole="Work" />
+        </EntityType>
+        <Association Name="FK_CarApplication">
+          <End Role="Car" Type="Model.CarModel" Multiplicity="1" >
+          </End>
+          <End Role="Application" Type="Model.ApplicationModel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Car">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Application">
+              <PropertyRef Name="ID_car" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EApllicationEOptionsCustomer">
+          <End Role="Application" Type="Model.ApplicationModel" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="OptionCustomer" Type="Model.OptionCustomerModel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Application">
+              <PropertyRef Name="Number" />
+            </Principal>
+            <Dependent Role="OptionCustomer">
+              <PropertyRef Name="Number" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EApplicationEReasonsCustomer">
+          <End Role="Application" Type="Model.ApplicationModel" Multiplicity="1" >
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ReasonCustomer" Type="Model.ReasonCustomerModel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Application">
+              <PropertyRef Name="Number" />
+            </Principal>
+            <Dependent Role="ReasonCustomer">
+              <PropertyRef Name="Number" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EEmployeeEApllication">
+          <End Role="Employee" Type="Model.EmployeeModel" Multiplicity="1" />
+          <End Role="Application" Type="Model.ApplicationModel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Application">
+              <PropertyRef Name="ID_employee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EPowerOfAttorneyEApllication">
+          <End Role="PowerOfAttorney" Type="Model.PowerOfAttorneyModel" Multiplicity="0..1" >
+          </End>
+          <End Role="Application" Type="Model.ApplicationModel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PowerOfAttorney">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Application">
+              <PropertyRef Name="ID_powerOfAttorney" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TypeRepairModelApplicationModel">
+          <End Role="TypeRepair" Type="Model.TypeRepairModel" Multiplicity="1" />
+          <End Role="Application" Type="Model.ApplicationModel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeRepair">
+              <PropertyRef Name="Type" />
+            </Principal>
+            <Dependent Role="Application">
+              <PropertyRef Name="Type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContractorCar">
+          <End Role="Contractor" Type="Model.ContractorModel" Multiplicity="1" >
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Car" Type="Model.CarModel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contractor">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Car">
+              <PropertyRef Name="ID_contractor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EModelEVehicles">
+          <End Role="Model" Type="Model.ModelModel" Multiplicity="1" />
+          <End Role="Car" Type="Model.CarModel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Model">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Car">
+              <PropertyRef Name="ID_model" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EContactNameEPowerOfAttorney">
+          <End Role="ContactPerson" Type="Model.ContactPersonModel" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PowerOfAttorney" Type="Model.PowerOfAttorneyModel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContactPerson">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PowerOfAttorney">
+              <PropertyRef Name="ID_contactPerson" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EContractingPartiesEContactName">
+          <End Role="Contractor" Type="Model.ContractorModel" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ContactPerson" Type="Model.ContactPersonModel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contractor">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ContactPerson">
+              <PropertyRef Name="ID_сontractor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EViewContractingPartiesEContractingParties">
+          <End Role="ViewСontractor" Type="Model.ViewСontractorModel" Multiplicity="1" />
+          <End Role="Contractor" Type="Model.ContractorModel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ViewСontractor">
+              <PropertyRef Name="View" />
+            </Principal>
+            <Dependent Role="Contractor">
+              <PropertyRef Name="View" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeModelUserModel">
+          <End Role="Employee" Type="Model.EmployeeModel" Multiplicity="1" />
+          <End Role="User" Type="Model.UserModel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="ID_employee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EPostEEmployee">
+          <End Role="Post" Type="Model.PostModel" Multiplicity="1" />
+          <End Role="Employee" Type="Model.EmployeeModel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Post">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="ID_post" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EMarkEModel">
+          <End Role="Mark" Type="Model.MarkModel" Multiplicity="1" />
+          <End Role="Model" Type="Model.ModelModel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mark">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Model">
+              <PropertyRef Name="ID_mark" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NomenclatureModelMaterialModel">
+          <End Role="Nomenclature" Type="Model.NomenclatureModel" Multiplicity="1" />
+          <End Role="Material" Type="Model.MaterialModel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Nomenclature">
+              <PropertyRef Name="Number" />
+            </Principal>
+            <Dependent Role="Material">
+              <PropertyRef Name="Number_nomenclature" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReasonCustomerModelMaterialModel">
+          <End Role="ReasonCustomer" Type="Model.ReasonCustomerModel" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Material" Type="Model.MaterialModel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReasonCustomer">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Material">
+              <PropertyRef Name="ID_reasonCustomer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NomenclatureModelWorkModel">
+          <End Role="Nomenclature" Type="Model.NomenclatureModel" Multiplicity="1" />
+          <End Role="Work" Type="Model.WorkModel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Nomenclature">
+              <PropertyRef Name="Number" />
+            </Principal>
+            <Dependent Role="Work">
+              <PropertyRef Name="Number_nomenclature" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TypeNomenclatureModelNomenclatureModel">
+          <End Role="TypeNomenclature" Type="Model.TypeNomenclatureModel" Multiplicity="1" />
+          <End Role="Nomenclature" Type="Model.NomenclatureModel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeNomenclature">
+              <PropertyRef Name="Type" />
+            </Principal>
+            <Dependent Role="Nomenclature">
+              <PropertyRef Name="Type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UnitModelNomenclatureModel">
+          <End Role="Unit" Type="Model.UnitModel" Multiplicity="1" />
+          <End Role="Nomenclature" Type="Model.NomenclatureModel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unit">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="Nomenclature">
+              <PropertyRef Name="Code_unit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EOptionsEOptionsCustomer">
+          <End Role="Option" Type="Model.OptionModel" Multiplicity="1" />
+          <End Role="OptionCustomer" Type="Model.OptionCustomerModel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Option">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="OptionCustomer">
+              <PropertyRef Name="ID_option" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReasonModelReasonCustomerModel">
+          <End Role="Reason" Type="Model.ReasonModel" Multiplicity="1" />
+          <End Role="ReasonCustomer" Type="Model.ReasonCustomerModel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reason">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ReasonCustomer">
+              <PropertyRef Name="ID_reason" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TypeManifestationModelReasonModel">
+          <End Role="TypeManifestation" Type="Model.TypeManifestationModel" Multiplicity="1" />
+          <End Role="Reason" Type="Model.ReasonModel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeManifestation">
+              <PropertyRef Name="Type" />
+            </Principal>
+            <Dependent Role="Reason">
+              <PropertyRef Name="Type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReasonCustomerModelWorkModel">
+          <End Role="ReasonCustomer" Type="Model.ReasonCustomerModel" Multiplicity="1" >
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Work" Type="Model.WorkModel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReasonCustomer">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Work">
+              <PropertyRef Name="ID_reasonCustomer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkingHourModelWorkModel">
+          <End Role="WorkingHour" Type="Model.WorkingHourModel" Multiplicity="1" />
+          <End Role="Work" Type="Model.WorkModel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WorkingHour">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Work">
+              <PropertyRef Name="ID_workingHour" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DbSSContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Application" EntityType="Model.ApplicationModel" />
+          <EntitySet Name="Car" EntityType="Model.CarModel" />
+          <EntitySet Name="ContactPerson" EntityType="Model.ContactPersonModel" />
+          <EntitySet Name="Contractor" EntityType="Model.ContractorModel" />
+          <EntitySet Name="Employee" EntityType="Model.EmployeeModel" />
+          <EntitySet Name="Mark" EntityType="Model.MarkModel" />
+          <EntitySet Name="Material" EntityType="Model.MaterialModel" />
+          <EntitySet Name="Model" EntityType="Model.ModelModel" />
+          <EntitySet Name="Nomenclature" EntityType="Model.NomenclatureModel" />
+          <EntitySet Name="Option" EntityType="Model.OptionModel" />
+          <EntitySet Name="OptionCustomer" EntityType="Model.OptionCustomerModel" />
+          <EntitySet Name="Post" EntityType="Model.PostModel" />
+          <EntitySet Name="PowerOfAttorney" EntityType="Model.PowerOfAttorneyModel" />
+          <EntitySet Name="Reason" EntityType="Model.ReasonModel" />
+          <EntitySet Name="ReasonCustomer" EntityType="Model.ReasonCustomerModel" />
+          <EntitySet Name="TypeManifestation" EntityType="Model.TypeManifestationModel" />
+          <EntitySet Name="TypeNomenclature" EntityType="Model.TypeNomenclatureModel" />
+          <EntitySet Name="TypeRepair" EntityType="Model.TypeRepairModel" />
+          <EntitySet Name="Unit" EntityType="Model.UnitModel" />
+          <EntitySet Name="User" EntityType="Model.UserModel" />
+          <EntitySet Name="ViewСontractor" EntityType="Model.ViewСontractorModel" />
+          <EntitySet Name="Work" EntityType="Model.WorkModel" />
+          <EntitySet Name="WorkingHour" EntityType="Model.WorkingHourModel" />
+          <AssociationSet Name="FK_CarApplication" Association="Self.FK_CarApplication">
+            <End Role="Car" EntitySet="Car" />
+            <End Role="Application" EntitySet="Application" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EApllicationEOptionsCustomer" Association="Self.FK_EApllicationEOptionsCustomer">
+            <End Role="Application" EntitySet="Application" />
+            <End Role="OptionCustomer" EntitySet="OptionCustomer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EApplicationEReasonsCustomer" Association="Self.FK_EApplicationEReasonsCustomer">
+            <End Role="Application" EntitySet="Application" />
+            <End Role="ReasonCustomer" EntitySet="ReasonCustomer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EEmployeeEApllication" Association="Self.FK_EEmployeeEApllication">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Application" EntitySet="Application" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EPowerOfAttorneyEApllication" Association="Self.FK_EPowerOfAttorneyEApllication">
+            <End Role="PowerOfAttorney" EntitySet="PowerOfAttorney" />
+            <End Role="Application" EntitySet="Application" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TypeRepairModelApplicationModel" Association="Self.FK_TypeRepairModelApplicationModel">
+            <End Role="TypeRepair" EntitySet="TypeRepair" />
+            <End Role="Application" EntitySet="Application" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContractorCar" Association="Self.FK_ContractorCar">
+            <End Role="Contractor" EntitySet="Contractor" />
+            <End Role="Car" EntitySet="Car" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EModelEVehicles" Association="Self.FK_EModelEVehicles">
+            <End Role="Model" EntitySet="Model" />
+            <End Role="Car" EntitySet="Car" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EContactNameEPowerOfAttorney" Association="Self.FK_EContactNameEPowerOfAttorney">
+            <End Role="ContactPerson" EntitySet="ContactPerson" />
+            <End Role="PowerOfAttorney" EntitySet="PowerOfAttorney" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EContractingPartiesEContactName" Association="Self.FK_EContractingPartiesEContactName">
+            <End Role="Contractor" EntitySet="Contractor" />
+            <End Role="ContactPerson" EntitySet="ContactPerson" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EViewContractingPartiesEContractingParties" Association="Self.FK_EViewContractingPartiesEContractingParties">
+            <End Role="ViewСontractor" EntitySet="ViewСontractor" />
+            <End Role="Contractor" EntitySet="Contractor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeModelUserModel" Association="Self.FK_EmployeeModelUserModel">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EPostEEmployee" Association="Self.FK_EPostEEmployee">
+            <End Role="Post" EntitySet="Post" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EMarkEModel" Association="Self.FK_EMarkEModel">
+            <End Role="Mark" EntitySet="Mark" />
+            <End Role="Model" EntitySet="Model" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NomenclatureModelMaterialModel" Association="Self.FK_NomenclatureModelMaterialModel">
+            <End Role="Nomenclature" EntitySet="Nomenclature" />
+            <End Role="Material" EntitySet="Material" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReasonCustomerModelMaterialModel" Association="Self.FK_ReasonCustomerModelMaterialModel">
+            <End Role="ReasonCustomer" EntitySet="ReasonCustomer" />
+            <End Role="Material" EntitySet="Material" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NomenclatureModelWorkModel" Association="Self.FK_NomenclatureModelWorkModel">
+            <End Role="Nomenclature" EntitySet="Nomenclature" />
+            <End Role="Work" EntitySet="Work" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TypeNomenclatureModelNomenclatureModel" Association="Self.FK_TypeNomenclatureModelNomenclatureModel">
+            <End Role="TypeNomenclature" EntitySet="TypeNomenclature" />
+            <End Role="Nomenclature" EntitySet="Nomenclature" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UnitModelNomenclatureModel" Association="Self.FK_UnitModelNomenclatureModel">
+            <End Role="Unit" EntitySet="Unit" />
+            <End Role="Nomenclature" EntitySet="Nomenclature" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EOptionsEOptionsCustomer" Association="Self.FK_EOptionsEOptionsCustomer">
+            <End Role="Option" EntitySet="Option" />
+            <End Role="OptionCustomer" EntitySet="OptionCustomer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReasonModelReasonCustomerModel" Association="Self.FK_ReasonModelReasonCustomerModel">
+            <End Role="Reason" EntitySet="Reason" />
+            <End Role="ReasonCustomer" EntitySet="ReasonCustomer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TypeManifestationModelReasonModel" Association="Self.FK_TypeManifestationModelReasonModel">
+            <End Role="TypeManifestation" EntitySet="TypeManifestation" />
+            <End Role="Reason" EntitySet="Reason" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReasonCustomerModelWorkModel" Association="Self.FK_ReasonCustomerModelWorkModel">
+            <End Role="ReasonCustomer" EntitySet="ReasonCustomer" />
+            <End Role="Work" EntitySet="Work" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkingHourModelWorkModel" Association="Self.FK_WorkingHourModelWorkModel">
+            <End Role="WorkingHour" EntitySet="WorkingHour" />
+            <End Role="Work" EntitySet="Work" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="DbSSContext">
+    <EntitySetMapping Name="Application">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.ApplicationModel)">
+        <MappingFragment StoreEntitySet="Application">
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="FirstControlTime" ColumnName="FirstControlTime" />
+          <ScalarProperty Name="SecondControlTime" ColumnName="SecondControlTime" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Readiness" ColumnName="Readiness" />
+          <ScalarProperty Name="Extradition" ColumnName="Extradition" />
+          <ScalarProperty Name="Revealed" ColumnName="Revealed" />
+          <ScalarProperty Name="Recommendations" ColumnName="Recommendations" />
+          <ScalarProperty Name="ID_powerOfAttorney" ColumnName="ID_powerOfAttorney" />
+          <ScalarProperty Name="ID_car" ColumnName="ID_car" />
+          <ScalarProperty Name="ID_employee" ColumnName="ID_employee" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Car">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.CarModel)">
+        <MappingFragment StoreEntitySet="Car">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="VIN" ColumnName="VIN" />
+          <ScalarProperty Name="ID_model" ColumnName="ID_model" />
+          <ScalarProperty Name="Mileage" ColumnName="Mileage" />
+          <ScalarProperty Name="LicensePlate" ColumnName="LicensePlate" />
+          <ScalarProperty Name="NumberEngine" ColumnName="NumberEngine" />
+          <ScalarProperty Name="NumberChassis" ColumnName="NumberChassis" />
+          <ScalarProperty Name="NumberBody" ColumnName="NumberBody" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="ID_contractor" ColumnName="ID_contractor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContactPerson">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.ContactPersonModel)">
+        <MappingFragment StoreEntitySet="ContactPerson">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="FFP" ColumnName="FFP" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Additionally" ColumnName="Additionally" />
+          <ScalarProperty Name="ID_сontractor" ColumnName="ID_сontractor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contractor">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.ContractorModel)">
+        <MappingFragment StoreEntitySet="Contractor">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="View" ColumnName="View" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="INN" ColumnName="INN" />
+          <ScalarProperty Name="KPP" ColumnName="KPP" />
+          <ScalarProperty Name="OKPO" ColumnName="OKPO" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Additionally" ColumnName="Additionally" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employee">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.EmployeeModel)">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="FFP" ColumnName="FFP" />
+          <ScalarProperty Name="ID_post" ColumnName="ID_post" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mark">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.MarkModel)">
+        <MappingFragment StoreEntitySet="Mark">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Material">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.MaterialModel)">
+        <MappingFragment StoreEntitySet="Material">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Number_nomenclature" ColumnName="Number_nomenclature" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="ID_reasonCustomer" ColumnName="ID_reasonCustomer" />
+          <ScalarProperty Name="Customer" ColumnName="Customer" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Model">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.ModelModel)">
+        <MappingFragment StoreEntitySet="Model">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ID_mark" ColumnName="ID_mark" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Nomenclature">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.NomenclatureModel)">
+        <MappingFragment StoreEntitySet="Nomenclature">
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Code_unit" ColumnName="Code_unit" />
+          <ScalarProperty Name="VendorCode" ColumnName="VendorCode" />
+          <ScalarProperty Name="Descriprion" ColumnName="Descriprion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Option">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.OptionModel)">
+        <MappingFragment StoreEntitySet="Option">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OptionCustomer">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.OptionCustomerModel)">
+        <MappingFragment StoreEntitySet="OptionCustomer">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="ID_option" ColumnName="ID_option" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Post">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.PostModel)">
+        <MappingFragment StoreEntitySet="Post">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PowerOfAttorney">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.PowerOfAttorneyModel)">
+        <MappingFragment StoreEntitySet="PowerOfAttorney">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="ID_contactPerson" ColumnName="ID_contactPerson" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reason">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.ReasonModel)">
+        <MappingFragment StoreEntitySet="Reason">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="Additionally" ColumnName="Additionally" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReasonCustomer">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.ReasonCustomerModel)">
+        <MappingFragment StoreEntitySet="ReasonCustomer">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ID_reason" ColumnName="ID_reason" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeManifestation">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.TypeManifestationModel)">
+        <MappingFragment StoreEntitySet="TypeManifestation">
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeNomenclature">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.TypeNomenclatureModel)">
+        <MappingFragment StoreEntitySet="TypeNomenclature">
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeRepair">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.TypeRepairModel)">
+        <MappingFragment StoreEntitySet="TypeRepair">
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Unit">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.UnitModel)">
+        <MappingFragment StoreEntitySet="Unit">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.UserModel)">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Administrator" ColumnName="Administrator" />
+          <ScalarProperty Name="ID_employee" ColumnName="ID_employee" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewСontractor">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.ViewСontractorModel)">
+        <MappingFragment StoreEntitySet="ViewСontractor">
+          <ScalarProperty Name="View" ColumnName="View" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Work">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.WorkModel)">
+        <MappingFragment StoreEntitySet="Work">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Number_nomenclature" ColumnName="Number_nomenclature" />
+          <ScalarProperty Name="ID_workingHour" ColumnName="ID_workingHour" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="NormOfTime" ColumnName="NormOfTime" />
+          <ScalarProperty Name="ID_reasonCustomer" ColumnName="ID_reasonCustomer" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorkingHour">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.WorkingHourModel)">
+        <MappingFragment StoreEntitySet="WorkingHour">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

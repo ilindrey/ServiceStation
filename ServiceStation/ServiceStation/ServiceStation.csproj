@@ -1,0 +1,580 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{508863BF-67C7-4B90-8681-E18D505E294F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ServiceStation</RootNamespace>
+    <AssemblyName>ServiceStation</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+    <Prefer32Bit>true</Prefer32Bit>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <CodeAnalysisIgnoreGeneratedCode>true</CodeAnalysisIgnoreGeneratedCode>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\Icons\Program.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>ServiceStation.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EFWinforms, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Resources\DLL\EFWinforms.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.Extended, Version=6.0.0.0, Culture=neutral, PublicKeyToken=05b7e29bdd433584, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.Extended.6.1.0.168\lib\net45\EntityFramework.Extended.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Word, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="ReachFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Printing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Forms\AuthorizationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AuthorizationForm.designer.cs">
+      <DependentUpon>AuthorizationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EditingApplicationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditingApplicationForm.designer.cs">
+      <DependentUpon>EditingApplicationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EditingCarForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditingCarForm.designer.cs">
+      <DependentUpon>EditingCarForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EditingContactPersonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditingContactPersonForm.designer.cs">
+      <DependentUpon>EditingContactPersonForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EditingContractorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditingContractorForm.designer.cs">
+      <DependentUpon>EditingContractorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EditingEmployeeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditingEmployeeForm.designer.cs">
+      <DependentUpon>EditingEmployeeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EditingMarkForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditingMarkForm.designer.cs">
+      <DependentUpon>EditingMarkForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EditingMaterialForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditingMaterialForm.Designer.cs">
+      <DependentUpon>EditingMaterialForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EditingModelForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditingModelForm.designer.cs">
+      <DependentUpon>EditingModelForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EditingNomenclatureForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditingNomenclatureForm.designer.cs">
+      <DependentUpon>EditingNomenclatureForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EditingOptionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditingOptionForm.designer.cs">
+      <DependentUpon>EditingOptionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EditingPostForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditingPostForm.designer.cs">
+      <DependentUpon>EditingPostForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EditingPowerOfAttorneyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditingPowerOfAttorneyForm.designer.cs">
+      <DependentUpon>EditingPowerOfAttorneyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EditingReasonCustomerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditingReasonCustomerForm.Designer.cs">
+      <DependentUpon>EditingReasonCustomerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EditingReasonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditingReasonForm.designer.cs">
+      <DependentUpon>EditingReasonForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EditingUnitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditingUnitForm.designer.cs">
+      <DependentUpon>EditingUnitForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EditingWorkForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditingWorkForm.Designer.cs">
+      <DependentUpon>EditingWorkForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EditingWorkingHourForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditingWorkingHourForm.Designer.cs">
+      <DependentUpon>EditingWorkingHourForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\JournalsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\JournalsForm.designer.cs">
+      <DependentUpon>JournalsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MainForm.designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PrintForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PrintForm.Designer.cs">
+      <DependentUpon>PrintForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GridView\ApplicationJournal.cs" />
+    <Compile Include="GridView\CarJournal.cs" />
+    <Compile Include="GridView\ContactPersonJournal.cs" />
+    <Compile Include="GridView\EmployeeJournal.cs" />
+    <Compile Include="GridView\BaseJournal.cs" />
+    <Compile Include="GridView\ViewModel\Application.cs" />
+    <Compile Include="GridView\ViewModel\Car.cs" />
+    <Compile Include="GridView\ViewModel\Material.cs" />
+    <Compile Include="GridView\ViewModel\ContactPerson.cs" />
+    <Compile Include="GridView\ViewModel\Contractor.cs" />
+    <Compile Include="GridView\ViewModel\Employee.cs" />
+    <Compile Include="GridView\ViewModel\Mark.cs" />
+    <Compile Include="GridView\ViewModel\Model.cs" />
+    <Compile Include="GridView\ViewModel\Nomenclature.cs" />
+    <Compile Include="GridView\ViewModel\Option.cs" />
+    <Compile Include="GridView\ViewModel\OptionCustomer.cs" />
+    <Compile Include="GridView\ViewModel\Post.cs" />
+    <Compile Include="GridView\ViewModel\PowerOfAttorney.cs" />
+    <Compile Include="GridView\ViewModel\Reason.cs" />
+    <Compile Include="GridView\ViewModel\ReasonCustomer.cs" />
+    <Compile Include="GridView\ViewModel\Unit.cs" />
+    <Compile Include="GridView\ViewModel\Work.cs" />
+    <Compile Include="GridView\ViewModel\WorkingHour.cs" />
+    <Compile Include="GridView\MarkJournal.cs" />
+    <Compile Include="GridView\MaterialJournal.cs" />
+    <Compile Include="GridView\ModelJournal.cs" />
+    <Compile Include="GridView\NomenclatureJournal.cs" />
+    <Compile Include="GridView\OptionCustomerJournal.cs" />
+    <Compile Include="GridView\OptionJournal.cs" />
+    <Compile Include="GridView\PostJournal.cs" />
+    <Compile Include="GridView\PowerOfAttorneyJournal.cs" />
+    <Compile Include="GridView\ReasonCustomerJournal.cs" />
+    <Compile Include="GridView\ReasonJournal.cs" />
+    <Compile Include="GridView\ContractorJournal.cs" />
+    <Compile Include="GridView\UnitJournal.cs" />
+    <Compile Include="GridView\WorkingHourJournal.cs" />
+    <Compile Include="GridView\WorkJournal.cs" />
+    <Compile Include="InterfacesView\IAuthorizationView.cs" />
+    <Compile Include="InterfacesView\IEditingMaterialView.cs" />
+    <Compile Include="InterfacesView\IEditingNomenclatureReasonCustomerView.cs" />
+    <Compile Include="InterfacesView\IEditingApplicationView.cs" />
+    <Compile Include="InterfacesView\IEditingCarView.cs" />
+    <Compile Include="InterfacesView\IEditingContactPersonView.cs" />
+    <Compile Include="InterfacesView\IEditingEmployeeView.cs" />
+    <Compile Include="InterfacesView\IEditingMarkView.cs" />
+    <Compile Include="InterfacesView\IEditingModelVIew.cs" />
+    <Compile Include="InterfacesView\IEditingNomenclatureView.cs" />
+    <Compile Include="InterfacesView\IEditingPostView.cs" />
+    <Compile Include="InterfacesView\IEditingPowerOfAttorneyView.cs" />
+    <Compile Include="InterfacesView\IEditingReasonCustomerView.cs" />
+    <Compile Include="InterfacesView\IEditingReasonView.cs" />
+    <Compile Include="InterfacesView\IEditingUnitView.cs" />
+    <Compile Include="InterfacesView\IEditingView.cs" />
+    <Compile Include="InterfacesView\IEditingWorkingHourView.cs" />
+    <Compile Include="InterfacesView\IEditingContractorView.cs" />
+    <Compile Include="InterfacesView\IEditingWorkView.cs" />
+    <Compile Include="InterfacesView\IEditongOptionView.cs" />
+    <Compile Include="InterfacesView\IJournalView.cs" />
+    <Compile Include="InterfacesView\IMainView.cs" />
+    <Compile Include="InterfacesView\Filter.cs" />
+    <Compile Include="InterfacesView\IView.cs" />
+    <Compile Include="InterfacesView\ActionAsync.cs" />
+    <Compile Include="Model\ApplicationModel.cs">
+      <DependentUpon>DbServiceStationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CarModel.cs">
+      <DependentUpon>DbServiceStationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ContactPersonModel.cs">
+      <DependentUpon>DbServiceStationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ContractorModel.cs">
+      <DependentUpon>DbServiceStationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DbServiceStationModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DbServiceStationModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DbServiceStationModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DbServiceStationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DbServiceStationModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DbServiceStationModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EmployeeModel.cs">
+      <DependentUpon>DbServiceStationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\MarkModel.cs">
+      <DependentUpon>DbServiceStationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\MaterialModel.cs">
+      <DependentUpon>DbServiceStationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ModelModel.cs">
+      <DependentUpon>DbServiceStationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\NomenclatureModel.cs">
+      <DependentUpon>DbServiceStationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\OptionCustomerModel.cs">
+      <DependentUpon>DbServiceStationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\OptionModel.cs">
+      <DependentUpon>DbServiceStationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PostModel.cs">
+      <DependentUpon>DbServiceStationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PowerOfAttorneyModel.cs">
+      <DependentUpon>DbServiceStationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ReasonCustomerModel.cs">
+      <DependentUpon>DbServiceStationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ReasonModel.cs">
+      <DependentUpon>DbServiceStationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TypeManifestationModel.cs">
+      <DependentUpon>DbServiceStationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TypeNomenclatureModel.cs">
+      <DependentUpon>DbServiceStationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TypeRepairModel.cs">
+      <DependentUpon>DbServiceStationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\UnitModel.cs">
+      <DependentUpon>DbServiceStationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\UserModel.cs">
+      <DependentUpon>DbServiceStationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewСontractorModel.cs">
+      <DependentUpon>DbServiceStationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\WorkingHourModel.cs">
+      <DependentUpon>DbServiceStationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\WorkModel.cs">
+      <DependentUpon>DbServiceStationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Presenter\AuthorizationPresenter.cs" />
+    <Compile Include="Presenter\JournalsPresenter.cs" />
+    <Compile Include="Presenter\MainPresenter.cs" />
+    <Compile Include="Presenter\MaterialPresenter.cs" />
+    <Compile Include="Presenter\NomenclaturePresenter.cs" />
+    <Compile Include="Presenter\ReasonCustomerPresenter.cs" />
+    <Compile Include="Presenter\UnitPresenter.cs" />
+    <Compile Include="Presenter\WorkingHourPresenter.cs" />
+    <Compile Include="Presenter\WorkPresenter.cs" />
+    <Compile Include="PrintDocument\CertificateCompletion.cs" />
+    <Compile Include="PrintDocument\Document.cs" />
+    <Compile Include="PrintDocument\AcceptanceTransferOwnershipCertificate.cs" />
+    <Compile Include="PrintDocument\JobTicket.cs" />
+    <Compile Include="Sundry\ConsistentGuid.cs" />
+    <Compile Include="Sundry\Message.cs" />
+    <Compile Include="Presenter\ApplicationPresenter.cs" />
+    <Compile Include="Presenter\BasePresenter.cs" />
+    <Compile Include="Presenter\CarPresenter.cs" />
+    <Compile Include="Presenter\ContactPersonPresenter.cs" />
+    <Compile Include="Presenter\ContractorPresenter.cs" />
+    <Compile Include="Presenter\EmployeePresenter.cs" />
+    <Compile Include="Presenter\MarkPresenter.cs" />
+    <Compile Include="Presenter\ModelPresenter.cs" />
+    <Compile Include="Presenter\OptionPresenter.cs" />
+    <Compile Include="Presenter\PostPresenter.cs" />
+    <Compile Include="Presenter\PowerOfAttorneyPresenter.cs" />
+    <Compile Include="Presenter\ReasonPresenter.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sundry\SHA256.cs" />
+    <Compile Include="Sundry\TypeAddress.cs" />
+    <Compile Include="Sundry\TypeNomernclature.cs" />
+    <EmbeddedResource Include="Forms\AuthorizationForm.resx">
+      <DependentUpon>AuthorizationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditingApplicationForm.resx">
+      <DependentUpon>EditingApplicationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditingCarForm.resx">
+      <DependentUpon>EditingCarForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditingContactPersonForm.resx">
+      <DependentUpon>EditingContactPersonForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditingContractorForm.resx">
+      <DependentUpon>EditingContractorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditingEmployeeForm.resx">
+      <DependentUpon>EditingEmployeeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditingMarkForm.resx">
+      <DependentUpon>EditingMarkForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditingMaterialForm.resx">
+      <DependentUpon>EditingMaterialForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditingModelForm.resx">
+      <DependentUpon>EditingModelForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditingNomenclatureForm.resx">
+      <DependentUpon>EditingNomenclatureForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditingOptionForm.resx">
+      <DependentUpon>EditingOptionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditingPostForm.resx">
+      <DependentUpon>EditingPostForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditingPowerOfAttorneyForm.resx">
+      <DependentUpon>EditingPowerOfAttorneyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditingReasonCustomerForm.resx">
+      <DependentUpon>EditingReasonCustomerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditingReasonForm.resx">
+      <DependentUpon>EditingReasonForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditingUnitForm.resx">
+      <DependentUpon>EditingUnitForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditingWorkForm.resx">
+      <DependentUpon>EditingWorkForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditingWorkingHourForm.resx">
+      <DependentUpon>EditingWorkingHourForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\JournalsForm.resx">
+      <DependentUpon>JournalsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PrintForm.resx">
+      <DependentUpon>PrintForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EntityDeploy Include="Model\DbServiceStationModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DbServiceStationModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DocumentTemplates\AcceptanceTransferOwnershipCertificate.dotx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="DocumentTemplates\CertificateCompletion.dotx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="DocumentTemplates\JobTicket.dotx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Model\DbServiceStationModel.edmx.diagram">
+      <DependentUpon>DbServiceStationModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model\DbServiceStationModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DbServiceStationModel.edmx</DependentUpon>
+      <LastGenOutput>DbServiceStationModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\DbServiceStationModel.edmx.sql" />
+    <Content Include="Model\DbServiceStationModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DbServiceStationModel.edmx</DependentUpon>
+      <LastGenOutput>DbServiceStationModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Resources\DLL\EFWinforms.dll" />
+    <Content Include="Resources\Icons\Add.ico" />
+    <None Include="Resources\Icons\Apply.ico" />
+    <None Include="Resources\Icons\Basket.ico" />
+    <None Include="Resources\Icons\Clear.ico" />
+    <Content Include="Resources\Icons\Close.ico" />
+    <Content Include="Resources\Icons\Delete.ico" />
+    <None Include="Resources\Icons\Edit.ico" />
+    <None Include="Resources\Icons\Print.ico" />
+    <None Include="Resources\Icons\Save.ico" />
+    <Content Include="Resources\Icons\Program.ico" />
+    <Content Include="Resources\Icons\Setting.ico" />
+    <None Include="Resources\Icons\Update.ico" />
+    <Content Include="Resources\Images\Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MainControl\MainControl.csproj">
+      <Project>{36b0a56a-c96f-4a5d-90ec-5e1b1328fc92}</Project>
+      <Name>MainControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RuDateAndMoneyConverter\RuDateAndMoneyConverter.csproj">
+      <Project>{2206f9e3-664d-4021-ae01-73d23d589fb7}</Project>
+      <Name>RuDateAndMoneyConverter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ViewOnlyTextBox\ViewOnlyTextBox.csproj">
+      <Project>{4ed11872-7018-49df-98c3-7b122e1d73cf}</Project>
+      <Name>ViewOnlyTextBox</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6 %28x86 и x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

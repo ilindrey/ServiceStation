@@ -1,0 +1,365 @@
+﻿<UserControl x:Class="MainControl.MainControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:MainControl"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             d:DesignHeight="750"
+             d:DesignWidth="750"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <Style x:Key="ListBoxItemStyle" TargetType="{x:Type ListBoxItem}">
+            <Setter Property="Height" Value="30" />
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0" Background="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="1">
+                <ListBox>
+                    <ListBoxItem x:Name="lbiApplication" Style="{StaticResource ResourceKey=ListBoxItemStyle}">
+                        <TextBlock Text="Заявки на ремонт" />
+                    </ListBoxItem>
+                    <ListBoxItem x:Name="lbiContractor" Style="{StaticResource ResourceKey=ListBoxItemStyle}">
+                        <TextBlock Text="Контрагенты" />
+                    </ListBoxItem>
+                    <ListBoxItem x:Name="lbiModel" Style="{StaticResource ResourceKey=ListBoxItemStyle}">
+                        <TextBlock Text="Модели автомобилей" />
+                    </ListBoxItem>
+                    <ListBoxItem x:Name="lbiMark" Style="{StaticResource ResourceKey=ListBoxItemStyle}">
+                        <TextBlock Text="Марки автомобилей" />
+                    </ListBoxItem>
+                    <ListBoxItem x:Name="lbiReason" Style="{StaticResource ResourceKey=ListBoxItemStyle}">
+                        <TextBlock Text="Причины обращения" />
+                    </ListBoxItem>
+                    <ListBoxItem x:Name="lbiOption" Style="{StaticResource ResourceKey=ListBoxItemStyle}">
+                        <TextBlock Text="Комплектации" />
+                    </ListBoxItem>
+                    <ListBoxItem x:Name="lbiNomenclature" Style="{StaticResource ResourceKey=ListBoxItemStyle}">
+                        <TextBlock Text="Номенклатуры" />
+                    </ListBoxItem>
+                    <ListBoxItem x:Name="lbiUnit" Style="{StaticResource ResourceKey=ListBoxItemStyle}">
+                        <TextBlock Text="Единицы измерения" />
+                    </ListBoxItem>
+                    <ListBoxItem x:Name="lbiWorkingHour" Style="{StaticResource ResourceKey=ListBoxItemStyle}">
+                        <TextBlock Text="Нормо-часы" />
+                    </ListBoxItem>
+                </ListBox>
+                <Button x:Name="btnSetting"
+                        Height="21"
+                        VerticalAlignment="Bottom"
+                        Content="Настройки" />
+            </Grid>
+        </Grid>
+        <TabControl x:Name="tcJournals" Grid.Column="1">
+            <TabItem x:Name="tiApplication"
+                     Height="23"
+                     ToolTip="Справочник заявок"
+                     Visibility="Visible">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   Text="Заявки на ремонт" />
+                        <Button x:Name="btnCloseApplication"
+                                Margin="10,0,0,0"
+                                Background="Transparent"
+                                BorderBrush="{x:Null}">
+
+                            <Grid MaxWidth="9" MaxHeight="9">
+                                <Path Data="M0,0 L8,8 M0,8 L8,0"
+                                      Stretch="None"
+                                      Stroke="{Binding RelativeSource={RelativeSource AncestorType=Button},
+                                                       Path=Foreground}"
+                                      StrokeThickness="1.5" />
+                            </Grid>
+                        </Button>
+                    </StackPanel>
+                </TabItem.Header>
+                <WindowsFormsHost x:Name="wfhApptication" />
+            </TabItem>
+            <TabItem x:Name="tiContractor"
+                     Height="23"
+                     ToolTip="Справочник контрагетов"
+                     Visibility="Collapsed">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   Text="Контрагенты" />
+                        <Button x:Name="btnCloseContractor"
+                                Margin="10,0,0,0"
+                                Background="Transparent"
+                                BorderBrush="{x:Null}">
+
+                            <Grid MaxWidth="9" MaxHeight="9">
+                                <Path Data="M0,0 L8,8 M0,8 L8,0"
+                                      Stretch="None"
+                                      Stroke="{Binding RelativeSource={RelativeSource AncestorType=Button},
+                                                       Path=Foreground}"
+                                      StrokeThickness="1.5" />
+                            </Grid>
+                        </Button>
+                    </StackPanel>
+                </TabItem.Header>
+                <WindowsFormsHost x:Name="wfhContractor" />
+            </TabItem>
+            <TabItem x:Name="tiModel"
+                     Height="23"
+                     ToolTip="Справочник моделей автомобилей"
+                     Visibility="Collapsed">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   Text="Модели автомобилей" />
+                        <Button x:Name="btnCloseModel"
+                                Margin="10,0,0,0"
+                                Background="Transparent"
+                                BorderBrush="{x:Null}">
+
+                            <Grid MaxWidth="9" MaxHeight="9">
+                                <Path Data="M0,0 L8,8 M0,8 L8,0"
+                                      Stretch="None"
+                                      Stroke="{Binding RelativeSource={RelativeSource AncestorType=Button},
+                                                       Path=Foreground}"
+                                      StrokeThickness="1.5" />
+                            </Grid>
+                        </Button>
+                    </StackPanel>
+                </TabItem.Header>
+                <WindowsFormsHost x:Name="wfhModel" />
+            </TabItem>
+            <TabItem x:Name="tiMark"
+                     Height="23"
+                     ToolTip="Справочник марок автомобилей"
+                     Visibility="Collapsed">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   Text="Марки автомобилей" />
+                        <Button x:Name="btnCloseMark"
+                                Margin="10,0,0,0"
+                                Background="Transparent"
+                                BorderBrush="{x:Null}">
+
+                            <Grid MaxWidth="9" MaxHeight="9">
+                                <Path Data="M0,0 L8,8 M0,8 L8,0"
+                                      Stretch="None"
+                                      Stroke="{Binding RelativeSource={RelativeSource AncestorType=Button},
+                                                       Path=Foreground}"
+                                      StrokeThickness="1.5" />
+                            </Grid>
+                        </Button>
+                    </StackPanel>
+                </TabItem.Header>
+                <WindowsFormsHost x:Name="wfhMark" />
+            </TabItem>
+            <TabItem x:Name="tiReason"
+                     Height="23"
+                     ToolTip="Справочник причин обращения заказчика"
+                     Visibility="Collapsed">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   Text="Причины обращения" />
+                        <Button x:Name="btnCloseReason"
+                                Margin="10,0,0,0"
+                                Background="Transparent"
+                                BorderBrush="{x:Null}">
+
+                            <Grid MaxWidth="9" MaxHeight="9">
+                                <Path Data="M0,0 L8,8 M0,8 L8,0"
+                                      Stretch="None"
+                                      Stroke="{Binding RelativeSource={RelativeSource AncestorType=Button},
+                                                       Path=Foreground}"
+                                      StrokeThickness="1.5" />
+                            </Grid>
+                        </Button>
+                    </StackPanel>
+                </TabItem.Header>
+                <WindowsFormsHost x:Name="wfhReason" />
+            </TabItem>
+            <TabItem x:Name="tiOption"
+                     Height="23"
+                     ToolTip="Справочник комплектаций заказчика"
+                     Visibility="Collapsed">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   Text="Комплектации" />
+                        <Button x:Name="btnCloseOption"
+                                Margin="10,0,0,0"
+                                Background="Transparent"
+                                BorderBrush="{x:Null}">
+
+                            <Grid MaxWidth="9" MaxHeight="9">
+                                <Path Data="M0,0 L8,8 M0,8 L8,0"
+                                      Stretch="None"
+                                      Stroke="{Binding RelativeSource={RelativeSource AncestorType=Button},
+                                                       Path=Foreground}"
+                                      StrokeThickness="1.5" />
+                            </Grid>
+                        </Button>
+                    </StackPanel>
+                </TabItem.Header>
+                <WindowsFormsHost x:Name="wfhOption" />
+            </TabItem>
+            <TabItem x:Name="tiNomenclature"
+                     Height="23"
+                     ToolTip="Справочник номенклатур"
+                     Visibility="Collapsed">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   Text="Номенклатуры" />
+                        <Button x:Name="btnCloseNomenclature"
+                                Margin="10,0,0,0"
+                                Background="Transparent"
+                                BorderBrush="{x:Null}">
+
+                            <Grid MaxWidth="9" MaxHeight="9">
+                                <Path Data="M0,0 L8,8 M0,8 L8,0"
+                                      Stretch="None"
+                                      Stroke="{Binding RelativeSource={RelativeSource AncestorType=Button},
+                                                       Path=Foreground}"
+                                      StrokeThickness="1.5" />
+                            </Grid>
+                        </Button>
+                    </StackPanel>
+                </TabItem.Header>
+                <WindowsFormsHost x:Name="wfhNomenclature" />
+            </TabItem>
+            <TabItem x:Name="tiUnit"
+                     Height="23"
+                     ToolTip="Справочник единиц измерения"
+                     Visibility="Collapsed">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   Text="Единицы измерения" />
+                        <Button x:Name="btnCloseUnit"
+                                Margin="10,0,0,0"
+                                Background="Transparent"
+                                BorderBrush="{x:Null}">
+
+                            <Grid MaxWidth="9" MaxHeight="9">
+                                <Path Data="M0,0 L8,8 M0,8 L8,0"
+                                      Stretch="None"
+                                      Stroke="{Binding RelativeSource={RelativeSource AncestorType=Button},
+                                                       Path=Foreground}"
+                                      StrokeThickness="1.5" />
+                            </Grid>
+                        </Button>
+                    </StackPanel>
+                </TabItem.Header>
+                <WindowsFormsHost x:Name="wfhUnit" />
+            </TabItem>
+            <TabItem x:Name="tiWorkingHour"
+                     Height="23"
+                     ToolTip="Справочник нормо-часов"
+                     Visibility="Collapsed">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   Text="Нормо-часы" />
+                        <Button x:Name="btnCloseWorkingHour"
+                                Margin="10,0,0,0"
+                                Background="Transparent"
+                                BorderBrush="{x:Null}">
+
+                            <Grid MaxWidth="9" MaxHeight="9">
+                                <Path Data="M0,0 L8,8 M0,8 L8,0"
+                                      Stretch="None"
+                                      Stroke="{Binding RelativeSource={RelativeSource AncestorType=Button},
+                                                       Path=Foreground}"
+                                      StrokeThickness="1.5" />
+                            </Grid>
+                        </Button>
+                    </StackPanel>
+                </TabItem.Header>
+                <WindowsFormsHost x:Name="wfhWorkingHour" />
+            </TabItem>
+            <TabItem x:Name="tiSetting"
+                     Height="23"
+                     ToolTip="Настройки системы"
+                     Visibility="Collapsed">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   Text="Настройки" />
+                        <Button x:Name="btnCloseSetting"
+                                Margin="10,0,0,0"
+                                Background="Transparent"
+                                BorderBrush="{x:Null}">
+
+                            <Grid MaxWidth="9" MaxHeight="9">
+                                <Path Data="M0,0 L8,8 M0,8 L8,0"
+                                      Stretch="None"
+                                      Stroke="{Binding RelativeSource={RelativeSource AncestorType=Button},
+                                                       Path=Foreground}"
+                                      StrokeThickness="1.5" />
+                            </Grid>
+                        </Button>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="100" />
+                        <RowDefinition Height="100" />
+                        <RowDefinition Height="100" />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <GridSplitter Grid.Row="0" VerticalAlignment="Bottom" />
+                    <GroupBox Grid.Row="0" Header="Условия заключения договора">
+                        <RichTextBox x:Name="rtbAgreementConditions">
+                            <FlowDocument>
+                                <Paragraph x:Name="pAgreementConditions">
+                                    dad
+                                </Paragraph>
+                            </FlowDocument>
+                        </RichTextBox>
+                    </GroupBox>
+                    <GridSplitter Grid.Row="1" VerticalAlignment="Bottom" />
+                    <GroupBox Grid.Row="1" Header="Условия договора о покупке материалов">
+                        <RichTextBox x:Name="rtbTermsPurchaseMaterials">
+                            <FlowDocument>
+                                <Paragraph x:Name="pTermsPurchaseMaterials">
+                                    dad
+                                </Paragraph>
+                            </FlowDocument>
+                        </RichTextBox>
+                    </GroupBox>
+                    <GridSplitter Grid.Row="2" VerticalAlignment="Bottom" />
+                    <GroupBox Grid.Row="2" Header="Условия гарантии">
+                        <RichTextBox x:Name="rtbGuarantee">
+                            <FlowDocument>
+                                <Paragraph x:Name="pGuarantee">
+                                    dad
+                                </Paragraph>
+                            </FlowDocument>
+                        </RichTextBox>
+                    </GroupBox>
+                    <GroupBox Grid.Row="3" Header="Пользователи">
+                        <WindowsFormsHost x:Name="wfhSetting" />
+                    </GroupBox>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</UserControl>

@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ServiceStation.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="AgreementConditions" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Автомобиль выдаётся заказчику после оплаты стоимости ремонта, оплата производится в бухгалтерии СТО. После окончания ремонта автомобиль должен быть вывезен с территории ремонта в течении 3-х дней. При простое автомобиля на СТО более 3-х дней ввиду отсутствия платы, на время ожидания запчастей или по другим причинам, не зависящим от СТО, с заказчика взимается плата на использование территории из расчёта один день: в цехе 600 р., во дворе - 140 р. Выдача автомобилей производится с 9 до 12 и 13 до 17 часов.</Value>
+    </Setting>
+    <Setting Name="TermsPurchaseMaterials" Type="System.String" Scope="User">
+      <Value Profile="(Default)">При покупке исполнителем для автомобиля заказчика запчастей и материалов у третьих лиц делается наценка 20% на их стоимость.</Value>
+    </Setting>
+    <Setting Name="Guarantee" Type="System.String" Scope="User">
+      <Value Profile="(Default)">слесарные – 2000км пробега или 2 месяца, рихтовано-покрасочные – 4 месяца. Гарантийные обязательства на работы выполняются фирмой только при предъявлении акта приемки автомобиля и техпаспорта(доверенности).</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
